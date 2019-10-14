@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/sms" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/sms" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/sms" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="MarkSmsAsSent">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="MarkSmsAsSent_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnGetSavedBulkMsg">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryId" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetSavedBulkMsg_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSaveBulkSMS">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bulkSMSText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSaveBulkSMS_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnMarkBulkSmsAsSent">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnMarkBulkSmsAsSent_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="MarkSmsAsSent">
+    <part name="parameters" element="tns:MarkSmsAsSent" />
+  </message>
+  <message name="MarkSmsAsSent_Result">
+    <part name="parameters" element="tns:MarkSmsAsSent_Result" />
+  </message>
+  <message name="FnGetSavedBulkMsg">
+    <part name="parameters" element="tns:FnGetSavedBulkMsg" />
+  </message>
+  <message name="FnGetSavedBulkMsg_Result">
+    <part name="parameters" element="tns:FnGetSavedBulkMsg_Result" />
+  </message>
+  <message name="FnSaveBulkSMS">
+    <part name="parameters" element="tns:FnSaveBulkSMS" />
+  </message>
+  <message name="FnSaveBulkSMS_Result">
+    <part name="parameters" element="tns:FnSaveBulkSMS_Result" />
+  </message>
+  <message name="FnMarkBulkSmsAsSent">
+    <part name="parameters" element="tns:FnMarkBulkSmsAsSent" />
+  </message>
+  <message name="FnMarkBulkSmsAsSent_Result">
+    <part name="parameters" element="tns:FnMarkBulkSmsAsSent_Result" />
+  </message>
+  <portType name="sms_Port">
+    <operation name="MarkSmsAsSent">
+      <input name="MarkSmsAsSent" message="tns:MarkSmsAsSent" />
+      <output name="MarkSmsAsSent_Result" message="tns:MarkSmsAsSent_Result" />
+    </operation>
+    <operation name="FnGetSavedBulkMsg">
+      <input name="FnGetSavedBulkMsg" message="tns:FnGetSavedBulkMsg" />
+      <output name="FnGetSavedBulkMsg_Result" message="tns:FnGetSavedBulkMsg_Result" />
+    </operation>
+    <operation name="FnSaveBulkSMS">
+      <input name="FnSaveBulkSMS" message="tns:FnSaveBulkSMS" />
+      <output name="FnSaveBulkSMS_Result" message="tns:FnSaveBulkSMS_Result" />
+    </operation>
+    <operation name="FnMarkBulkSmsAsSent">
+      <input name="FnMarkBulkSmsAsSent" message="tns:FnMarkBulkSmsAsSent" />
+      <output name="FnMarkBulkSmsAsSent_Result" message="tns:FnMarkBulkSmsAsSent_Result" />
+    </operation>
+  </portType>
+  <binding name="sms_Binding" type="tns:sms_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="MarkSmsAsSent">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/sms:MarkSmsAsSent" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="MarkSmsAsSent">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="MarkSmsAsSent_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetSavedBulkMsg">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/sms:FnGetSavedBulkMsg" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetSavedBulkMsg">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetSavedBulkMsg_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnSaveBulkSMS">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/sms:FnSaveBulkSMS" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnSaveBulkSMS">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnSaveBulkSMS_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnMarkBulkSmsAsSent">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/sms:FnMarkBulkSmsAsSent" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnMarkBulkSmsAsSent">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnMarkBulkSmsAsSent_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="sms">
+    <port name="sms_Port" binding="tns:sms_Binding">
+      <address location="http://192.168.0.3:7052/KNTC2018/WS/Kenya%20National%20Trading%20Corp/Codeunit/sms" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

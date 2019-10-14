@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceProcess;
 
 namespace BulkSmsRoutine
 {
@@ -14,12 +9,19 @@ namespace BulkSmsRoutine
         /// </summary>
         static void Main()
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
-            {
-                new Service1()
-            };
-            ServiceBase.Run(ServicesToRun);
+            #if DEBUG
+                BulkSmsServ mSev = new BulkSmsServ();
+                mSev.OnDebug();
+                System.Threading.Thread.Sleep((System.Threading.Timeout.Infinite));
+
+            #else
+                ServiceBase[] ServicesToRun;
+                ServicesToRun = new ServiceBase[]
+                {
+                    new BulkSmsServ()
+                };
+                ServiceBase.Run(ServicesToRun);
+            #endif
         }
     }
 }
